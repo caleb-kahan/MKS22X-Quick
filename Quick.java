@@ -10,9 +10,20 @@ public class Quick{
        while(start<=end && data[start]<=data[pivot]){
         start++;
        }
-       swap(data,start,pivot);
-       partition(data,start+1,end);
+       data = swap(data,start,pivot);
+       return partition(data,start+1,end);
      }
+     int pivot = start-1;
+     while(start<=end && data[start]<=data[pivot]){
+      start++;
+     }
+     if(start-1>pivot)data = swap(data,start-1,pivot);
+     while(end>=start && data[end]>data[pivot]){
+      end--;
+     }
+     
+
+
 
    }
    public int [] swap(int [] data, int index1, int index2){
