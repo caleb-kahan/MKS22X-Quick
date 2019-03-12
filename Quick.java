@@ -13,7 +13,14 @@ public class Quick{
      int temp = start;
      while(start<=end && data[start]<=data[0]) start++;
      while(end>=start && data[end]>data[pivot]) end--;
+     for(int i=start;i<=end;i++){
+       if(data[i]<=data[0]){
+         data = swap(data, i, start);
+         return partition(data,start+1,end);
+       }
      }
+     
+   }
 
 
 
