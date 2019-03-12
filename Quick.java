@@ -19,30 +19,17 @@ public class Quick{
          return partition(data,start+1,end);
        }
      }
-     
-   }
-
-
-
-
+     //Everthing's done at this point, woohoo
+     boolean swapWithStart = data[0]>=data[start];
+     if(swapWithStart){
+       return start;
+     }
+     return start-1;
    }
    public int [] swap(int [] data, int index1, int index2){
      int temp = data[index1];
      data[index1]=data[index2];
      data[index2]=temp;
      return data;
-   }
-   public int partitionH ( int [] data, int start, int end){
-     int difference = end - start + 1;
-     int add = (int)(Math.random()*difference);
-     int pivot = start+add;
-     for(int i=start;i<end;i++){
-       if(data[i]>data[pivot] && pivot>i){
-         int temp = data[i];
-         data[i]=data[pivot];
-         data[pivot]=temp;
-       }
-     }
-     return pivot;
    }
  }
