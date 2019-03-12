@@ -7,21 +7,14 @@ public class Quick{
        int difference = end - start + 1;
        int add = (int)(Math.random()*difference);
        int pivot = start+add;
-       while(start<=end && data[start]<=data[pivot]){
-        start++;
-       }
        data = swap(data,start,pivot);
        return partition(data,start+1,end);
      }
-     int pivot = start-1;
-     while(start<=end && data[start]<=data[pivot]){
-      start++;
+     int temp = start;
+     while(start<=end && data[start]<=data[0]) start++;
+     while(end>=start && data[end]>data[pivot]) end--;
      }
-     if(start-1>pivot)data = swap(data,start-1,pivot);
-     while(end>=start && data[end]>data[pivot]){
-      end--;
-     }
-     
+
 
 
 
