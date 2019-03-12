@@ -1,6 +1,6 @@
 public class Quick{
   public static int quickselect(int []data, int k){
-    int pivot = partition(data,0,data.length);
+    int pivot = partition(data,0,data.length-1);
     while(pivot!=k){
       if(pivot>k){
         int size = data.length-pivot-1;
@@ -23,7 +23,7 @@ public class Quick{
 
    }
     public static int partition ( int [] data, int start, int end){
-     if(data==0){
+     if(start==0){
        int difference = end - start + 1;
        int add = (int)(Math.random()*difference);
        int pivot = start+add;
@@ -32,7 +32,7 @@ public class Quick{
      }
      int temp = start;
      while(start<end && data[start]<=data[0]) start++;
-     while(end>start && data[end]>data[pivot]) end--;
+     while(end>start && data[end]>data[0]) end--;
      for(int i=start;i<=end;i++){
        if(data[i]<=data[0]){
          data = swap(data, i, start);
