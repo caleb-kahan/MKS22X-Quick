@@ -7,10 +7,17 @@ public class Quick{
         int [] returner = new int[size];
         for(int i = data.length-1, j=0;i>data.length-1-size;i--,j++){
           returner[j]=data[i];
-
+          return quickselect(returner,k-(data.length-size));
         }
       }
-        pivot = partition(data,0,data.length);
+      else{
+        int size = data.length-pivot-1;
+        int [] returner = new int[size];
+        for(int i = data.length-1, j=0;i>data.length-1-size;i--,j++){
+          returner[j]=data[i];
+          return quickselect(returner,k-(data.length-size));
+        }
+      }
     }
     return data[pivot];
 
