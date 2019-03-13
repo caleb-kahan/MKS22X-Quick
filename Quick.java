@@ -5,7 +5,7 @@ public class Quick{
       if(pivot>k){
         int size = data.length-pivot-1;
         int [] returner = new int[size];
-        for(int i = data.length-1, j=0;i>data.length-1-size;i--,j++){
+        for(int i = data.length-1, j=size-1;i>data.length-1-size;i--,j--){
           returner[j]=data[i];
         }
 	data = returner;
