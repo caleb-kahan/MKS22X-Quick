@@ -1,22 +1,24 @@
 public class Quick{
   public static int quickselect(int []data, int k){
     int pivot = partition(data,0,data.length-1);
+    int start;
+    int end;
     while(pivot!=k){
       if(pivot>k){
         int size = data.length-pivot-1;
         int [] returner = new int[size];
-        for(int i = data.length-1, j=0; i>data.length-1-size; i--,j++) {
+        for(int i = data.length-1,j=size-1; i>data.length-1-size;i--,j++) {
           returner[j]=data[i];
-          return quickselect(returner,k-(data.length-size));
         }
+        return quickselect(returner,k-(data.length-size));
       }
       else{
-        int size = data.length-pivot-1;
+        int size = pivot;
         int [] returner = new int[size];
-        for(int i = data.length-1, j=0; i>data.length-1-size; i--,j++) {
-          returner[j]=data[i];
-          return quickselect(returner,k-(data.length-size));
+        for(int i = 0, j=0; i<k; i++,j++) {
+          returner[k]=data[k];
         }
+        return quickselect(returner,k);
       }
     }
     return data[pivot];
