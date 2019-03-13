@@ -1,5 +1,6 @@
 public class Quick{
   public static int quickselect(int []data, int k){
+    
     int pivot = partition(data,0,data.length-1);
     int start;
     int end;
@@ -10,6 +11,7 @@ public class Quick{
         for(int i = data.length-1, j=size-1;i>data.length-1-size;i--,j--){
           returner[j]=data[i];
         }
+	k-=(data.length-size);
 	data = returner;
 	pivot=partition(data,0,data.length-1);
        
@@ -54,5 +56,11 @@ public class Quick{
     data[index1] = data[index2];
     data[index2] = temp;
     return data;
+  }
+  private static void printArray(int [] printer){
+	System.out.print("[");
+	for(int x: printer)
+		System.out.print(x + " , ");
+	System.out.println("]");
   }
 }
