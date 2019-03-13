@@ -25,8 +25,8 @@ public class Driver{
 	}
 	public static void main(String[] args){
 		Random r = new Random(); int sucesses = 0;
-		int tests = 401; System.out.println("testing array sizes 1-400 having numbers from 0-n, asking for a random smallest int. (arrays do not contain duplicates)");
-		for (int i = 1; i < tests; i++){
+		int tests = 11; System.out.println("testing array sizes 1-400 having numbers from 0-n, asking for a random smallest int. (arrays do not contain duplicates)");
+		for (int i = 2; i < tests; i++){
 			int[] data = new int[i];
 			int select = i <= 1 ? 0 : r.nextInt(i);
 			fillRandom(data);
