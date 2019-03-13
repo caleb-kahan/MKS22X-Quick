@@ -28,7 +28,12 @@ public class Quick{
     }
     return data[pivot];
   }
-
+  public static int quickselect(data, start, end, k){
+            if(start==k)return data[start];
+	    if(end==k) return data[end];
+  	    int pivot = partition(data,start,end);
+		
+	
   public static int partition ( int [] data, int start, int end) {
     int difference = end - start + 1;
     int add = (int)(Math.random() * difference);
