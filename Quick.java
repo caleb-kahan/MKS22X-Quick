@@ -10,6 +10,12 @@ public class Quick{
       if(pivot==k) return data[pivot];
       return quickselect(data,start,pivot-1,k) + quickselect(data,pivot+1,end,k);
   }
+  public static void quicksort(int[] data, int start, int end){
+      if(start>=end) return;
+  	  int pivot = partition(data,start,end);
+      quicksort(data,start,pivot-1);
+      quicksort(data,pivot+1,end);
+  }
 
   public static int partition ( int [] data, int start, int end) {
     int difference = end - start + 1;
