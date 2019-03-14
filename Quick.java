@@ -1,6 +1,6 @@
 public class Quick{
   public static int quickselect(int []data, int k){
-    return quickselect(data, start, data.length-1, k);
+    return quickselect(data, 0, data.length-1, k);
   }
   public static int quickselect(int[] data, int start, int end, int k){
       if(! (k>=start && k<=end)) return 0;
