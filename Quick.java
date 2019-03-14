@@ -2,15 +2,15 @@ public class Quick{
   public static int quickselect(int []data, int k){
     return quickselect(data, 0, data.length-1, k);
   }
-  public static int quickselect(int[] data, int start, int end, int k){
+
+  public static int quickselect(int[] data, int start, int end, int k) {
       if(! (k>=start && k<=end)) return 0;
-      if(start==k)return data[start];
-	    if(end==k) return data[end];
-  	  int pivot = partition(data,start,end);
+  	  int pivot = partition(data, start, end);
       if(pivot==k) return data[pivot];
-      return quickselect(data,start,pivot-1,k) + quickselect(data,pivot+1,end,k);
+      return quickselect(data, start, pivot-1, k) + quickselect(data, pivot+1, end, k);
   }
-  public static void quicksort(int[] data, int start, int end){
+
+  public static void quicksort(int[] data, int start, int end) {
       if(start>=end) return;
   	  int pivot = partition(data,start,end);
       quicksort(data,start,pivot-1);
@@ -45,6 +45,7 @@ public class Quick{
     data[index2] = temp;
     return data;
   }
+
   private static void printArray(int [] printer){
 	System.out.print("[");
 	for(int x: printer)
