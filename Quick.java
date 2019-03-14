@@ -1,39 +1,16 @@
 public class Quick{
   public static int quickselect(int []data, int k){
-    
-    int pivot = partition(data,0,data.length-1);
-    int start;
-    int end;
-    while(pivot!=k){
-      if(pivot<k){
-        int size = data.length-pivot-1;
-        int [] returner = new int[size];
-        for(int i = data.length-1, j=size-1;i>data.length-1-size;i--,j--){
-          returner[j]=data[i];
-        }
-	k-=(data.length-size);
-	data = returner;
-	pivot=partition(data,0,data.length-1);
-       
-      }
-      else{
-        int size = pivot;
-        int [] returner = new int[size];
-        for(int i = 0, j=0;i<k;i++,j++){
-          returner[j]=data[i];
-        }
-	data = returner;
-	pivot=partition(data,0,data.length-1);
-      }
-    }
-    return data[pivot];
+    return quickselect(data, start, data.length-1, k);
   }
-  public static int quickselect(data, start, end, k){
-            if(start==k)return data[start];
+  public static int quickselect(int[] data, int start, int end, int k){
+      if(! (k>=start && k<=end)) return 0;
+      if(start==k)return data[start];
 	    if(end==k) return data[end];
-  	    int pivot = partition(data,start,end);
-		
-	
+  	  int pivot = partition(data,start,end);
+      if(pivot==k) return data[pivot];
+      return quickselect(data,start,pivot-1,k) + quickselect(data,pivot+1,end,k);
+  }
+
   public static int partition ( int [] data, int start, int end) {
     int difference = end - start + 1;
     int add = (int)(Math.random() * difference);
