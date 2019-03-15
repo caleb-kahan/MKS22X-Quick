@@ -27,7 +27,7 @@ public class Quick{
     else pivot = end;
     /*int difference = end - start + 1;
     int add = (int)(Math.random() * difference);
-    int pivot = start + add;*/
+    pivot = start + add;*/
 
     data = swap(data, pivot, start);
     pivot = start++;
