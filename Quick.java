@@ -41,7 +41,7 @@ public class Quick{
     int dataPivot = data[lt];
     boolean flip = false;
 
-    while(lo <= hi) {
+    while(i<=gt) {
       if(dataPivot==data[i]){
           i++;
       }
@@ -57,8 +57,7 @@ public class Quick{
       flip = !flip;
     }
 
-    data = swap(data, pivot, end);
-    return end;
+    return new int [] {lt,gt};
     //your code
     //return an array [lt,gt]
 }
