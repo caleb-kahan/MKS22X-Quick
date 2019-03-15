@@ -43,11 +43,12 @@ public class Quick{
 
     while(lo <= hi) {
       if(dataPivot==data[i]){
-          i+++;
+          i++;
       }
-      else if(dataPivot > data[start]){
-        data = swap(data, pivot, end);
-        start++;
+      else if(data[i] < data[pivot]){
+        data = swap(data, i, lt);
+        i++;
+	lt++;
       }
       else{
         data = swap(data, start, end);
