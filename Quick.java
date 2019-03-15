@@ -28,7 +28,8 @@ public class Quick{
     pivot = start++;
 
     while(start <= end) {
-      if(data[pivot] >= data[start]) {
+      boolean fifty_fifty = Math.random()>0.5;
+      if(data[pivot] > data[start] || data[pivot]==data[start] && fifty_fifty) {
         start++;
       }
       else {
