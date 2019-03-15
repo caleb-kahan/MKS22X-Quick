@@ -33,11 +33,12 @@ public class Quick{
     pivot = start++;
 
     while(start <= end) {
-      boolean fifty_fifty = Math.random()>0.5;
-      if(data[pivot] > data[start] || data[pivot]==data[start] && fifty_fifty) {
+      while(start<=end && data[pivot] >= data[start]){
+        boolean fifty_fifty = Math.random()>0.5;
+        if(data[pivot]==data[start] && fifty_fifty) break;
         start++;
       }
-      else {
+      if(start<=end){
         data = swap(data, start, end);
         end--;
       }
