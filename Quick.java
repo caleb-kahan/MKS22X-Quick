@@ -9,7 +9,9 @@ public class Quick{
       if(pivot==k) return data[pivot];
       return quickselect(data, start, pivot-1, k) + quickselect(data, pivot+1, end, k);
   }
-
+  public static void quicksort(int []data){
+    quicksort(data,0,data.length-1);
+  }
   public static void quicksort(int[] data, int start, int end) {
       if(start>=end) return;
   	  int pivot = partition(data,start,end);
