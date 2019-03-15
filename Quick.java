@@ -42,6 +42,15 @@ public class Quick{
         data = swap(data, start, end);
         end--;
       }
+      while(start<=end && data[pivot] <= data[end]){
+        boolean fifty_fifty = Math.random()>0.5;
+        if(data[pivot]==data[end] && fifty_fifty) break;
+        end--;
+      }
+      if(start<=end){
+        data = swap(data, start, end);
+        start++;
+      }
     }
 
     data = swap(data, pivot, end);
