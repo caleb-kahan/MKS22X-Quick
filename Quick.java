@@ -14,7 +14,7 @@ public class Quick{
   }
   public static void quicksort(int[] data, int start, int end) {
       if(start>=end) return;
-  	  int pivot = partition(data,start,end);
+      int pivot = partition(data,start,end);
       quicksort(data,start,pivot-1);
       quicksort(data,pivot+1,end);
   }
@@ -31,33 +31,31 @@ public class Quick{
       pivot = central;
     else
       pivot = end;
-
-    /*int difference = end - start + 1;
-    int add = (int)(Math.random() * difference);
-    pivot = start + add;*/
+    
 
     data = swap(data, pivot, start);
     pivot = start++;
+    int dataPivot = data[pivot];
+    boolean flip = false;
 
     while(start <= end) {
-      while(start<=end && data[pivot] >= data[start]){
-        boolean fifty_fifty = Math.random()>0.5;
-        if(data[pivot]==data[start] && fifty_fifty) break;
+      if(dataPivot==data[start]){
+	if(flip){
+	  data = swap(data, start, end);
+	  end--;
+        }
+        else {
+          start++;
+	}
+      }
+      else if(dataPivot > data[start]){
         start++;
       }
-      if(start<=end){
+      else{
         data = swap(data, start, end);
         end--;
       }
-      while(start<=end && data[pivot] <= data[end]){
-        boolean fifty_fifty = Math.random()>0.5;
-        if(data[pivot]==data[end] && fifty_fifty) break;
-        end--;
-      }
-      if(start<=end){
-        data = swap(data, start, end);
-        start++;
-      }
+      flip = !flip;
     }
 
     data = swap(data, pivot, end);
