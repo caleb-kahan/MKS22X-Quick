@@ -18,6 +18,49 @@ public class Quick{
       quicksort(data,start,pivot-1);
       quicksort(data,pivot+1,end);
   }
+  private int[] partitionDutch(int[] data,int lo, int hi){
+    int lt = lo;
+    int i  = lo;
+    int gt = hi;
+
+    int central = (lo+hi)/2;
+    int pivot;
+    int pivotValue = (data[lo] + data[central] + data[hi])
+                   - Math.max(data[ho], Math.max(data[central], data[hi]))
+                   - Math.min(data[lo], Math.min(data[central], data[hi]));
+    if(pivotValue == data[lo])
+      pivot = lo;
+    else if(pivotValue == data[central])
+      pivot = central;
+    else
+      pivot = hi;
+
+
+    data = swap(data, pivot, lt);
+    lt = i++;
+    int dataPivot = data[lt];
+    boolean flip = false;
+
+    while(lo <= hi) {
+      if(dataPivot==data[i]){
+          i+++;
+      }
+      else if(dataPivot > data[start]){
+        data = swap(data, pivot, end);
+        start++;
+      }
+      else{
+        data = swap(data, start, end);
+        end--;
+      }
+      flip = !flip;
+    }
+
+    data = swap(data, pivot, end);
+    return end;
+    //your code
+    //return an array [lt,gt]
+}
 
   public static int partition ( int [] data, int start, int end) {
     int central = (start+end)/2;
@@ -31,7 +74,7 @@ public class Quick{
       pivot = central;
     else
       pivot = end;
-    
+
 
     data = swap(data, pivot, start);
     pivot = start++;
