@@ -22,9 +22,16 @@ public class Quick{
   public static int partition ( int [] data, int start, int end) {
     int central = (start+end)/2;
     int pivot;
-    if(data[start]>=data[central] && data[start] <= data[end]) pivot = start;
-    else if(data[central]>data[start] && data[central]<data[end]) pivot = central;
-    else pivot = end;
+    int pivotValue = (data[start] + data[central] + data[end])
+                   - Math.max(data[start], Math.max(data[central], data[end]))
+                   - Math.min(data[start], Math.min(data[central], data[end]));
+    if(pivotValue == data[start])
+      pivot = start;
+    else if(pivotValue == data[central])
+      pivot = central;
+    else
+      pivot = end;
+
     /*int difference = end - start + 1;
     int add = (int)(Math.random() * difference);
     pivot = start + add;*/
