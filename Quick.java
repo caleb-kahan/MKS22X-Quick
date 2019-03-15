@@ -51,8 +51,8 @@ public class Quick{
 	lt++;
       }
       else{
-        data = swap(data, start, end);
-        end--;
+        data = swap(data, i, gt);
+        gt--;
       }
       flip = !flip;
     }
