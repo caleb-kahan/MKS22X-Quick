@@ -26,7 +26,7 @@ public class Quick{
     int central = (lo+hi)/2;
     int pivot;
     int pivotValue = (data[lo] + data[central] + data[hi])
-                   - Math.max(data[ho], Math.max(data[central], data[hi]))
+                   - Math.max(data[lo], Math.max(data[central], data[hi]))
                    - Math.min(data[lo], Math.min(data[central], data[hi]));
     if(pivotValue == data[lo])
       pivot = lo;
