@@ -20,16 +20,21 @@ public class Quick{
   }
 
   public static int partition ( int [] data, int start, int end) {
-    int difference = end - start + 1;
+    int central = (start+end)/2;
+    int pivot;
+    if(data[start]>=data[central] && data[start] <= data[end]) pivot = start;
+    else if(data[central]>data[start] && data[central]<data[end]) pivot = central;
+    else pivot = end;
+    /*int difference = end - start + 1;
     int add = (int)(Math.random() * difference);
-    int pivot = start + add;
+    int pivot = start + add;*/
 
     data = swap(data, pivot, start);
     pivot = start++;
 
     while(start <= end) {
       boolean fifty_fifty = Math.random()>0.5;
-      if(data[pivot] > data[start] || data[pivot]==data[start] && fifty_fifty) {
+      if(data[pivot] > data[start]) {// || data[pivot]==data[start] && fifty_fifty)
         start++;
       }
       else {
