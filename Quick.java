@@ -44,7 +44,6 @@ public class Quick{
 
 
     data = swap(data, pivot, lt);
-    lt = i++;
     int dataPivot = data[lt];
 
     while(i<=gt) {
