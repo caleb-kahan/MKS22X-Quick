@@ -22,10 +22,10 @@ public class Quick{
       if(start>=end) return;
       int [] pivots = partitionDutch(data,start,end);
       quicksort(data,start,pivots[0]-1);
-      quicksort(data,pivot[1]+1,end);
+      quicksort(data,pivots[1]+1,end);
   }
   
-  private int[] partitionDutch(int[] data,int lo, int hi){
+  private static int[] partitionDutch(int[] data,int lo, int hi){
     int lt = lo;
     int i  = lo;
     int gt = hi;
