@@ -12,12 +12,19 @@ public class Quick{
   public static void quicksort(int []data){
     quicksort(data,0,data.length-1);
   }
+  /*public static void quicksort(int[] data, int start, int end) {
+      if(start>=end) return;
+      int pivot = partition(data,start,end);
+      quicksort(data,start,pivot-1);
+      quicksort(data,pivot+1,end);
+  }*/
   public static void quicksort(int[] data, int start, int end) {
       if(start>=end) return;
       int pivot = partition(data,start,end);
       quicksort(data,start,pivot-1);
       quicksort(data,pivot+1,end);
   }
+  
   private int[] partitionDutch(int[] data,int lo, int hi){
     int lt = lo;
     int i  = lo;
@@ -39,7 +46,6 @@ public class Quick{
     data = swap(data, pivot, lt);
     lt = i++;
     int dataPivot = data[lt];
-    boolean flip = false;
 
     while(i<=gt) {
       if(dataPivot==data[i]){
@@ -54,7 +60,6 @@ public class Quick{
         data = swap(data, i, gt);
         gt--;
       }
-      flip = !flip;
     }
 
     return new int [] {lt,gt};
