@@ -20,9 +20,9 @@ public class Quick{
   }*/
   public static void quicksort(int[] data, int start, int end) {
       if(start>=end) return;
-      int pivot = partition(data,start,end);
-      quicksort(data,start,pivot-1);
-      quicksort(data,pivot+1,end);
+      int [] pivots = partitionDutch(data,start,end);
+      quicksort(data,start,pivots[0]-1);
+      quicksort(data,pivot[1]+1,end);
   }
   
   private int[] partitionDutch(int[] data,int lo, int hi){
