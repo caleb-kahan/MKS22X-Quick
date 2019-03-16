@@ -27,7 +27,7 @@ public class Quick{
   
   private static int[] partitionDutch(int[] data,int lo, int hi){
     int lt = lo;
-    int i  = lo;
+    int i  = lo+1;
     int gt = hi;
 
     int central = (lo+hi)/2;
