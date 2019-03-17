@@ -37,6 +37,10 @@ public class Quick{
       quicksort(data,pivot+1,end);
   }*/
   public static void quicksort(int[] data, int start, int end) {
+      if(end-start<25){
+	  insertionSort(data,start,end);
+	  return;
+      }
       if(start>=end) return;
       int [] pivots = partitionDutch(data,start,end);
       quicksort(data,start,pivots[0]-1);
