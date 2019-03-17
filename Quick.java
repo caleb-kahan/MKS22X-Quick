@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 public class Quick{
   public static int quickselect(int []data, int k){
     return quickselect(data, 0, data.length-1, k);
@@ -27,15 +28,32 @@ public class Quick{
       if(pivot==k) return data[pivot];
       return quickselect(data, start, pivot-1, k) + quickselect(data, pivot+1, end, k);
   }
-  public static void quicksort(int []data){
-    quicksort(data,0,data.length-1);
+  private static int calculateDuplicity(int [] data){
+	int duplicates =0;
+	ArrayList<Integer> previous = new ArrayList<Integer>();
+	for(int i = 0;i<data.length;i++){
+		if(previous.contains(data[i]))
+			duplicates++;
+		else previous.add(data[i]);
+	}
+	return duplicates/data.length;
   }
-  /*public static void quicksort(int[] data, int start, int end) {
+		
+  public static void quicksort(int []data){
+    if(calculateDuplicity(data)<0.01)
+	quickSortOld(data,0,data.length-1);
+    else quicksort(data,0,data.length-1);
+  }
+  public static void quickSortOld(int[] data, int start, int end) {
+      if(end-start<40){
+	  insertionSort(data,start,end);
+	  return;
+      }
       if(start>=end) return;
       int pivot = partition(data,start,end);
       quicksort(data,start,pivot-1);
       quicksort(data,pivot+1,end);
-  }*/
+  }
   public static void quicksort(int[] data, int start, int end) {
       if(end-start<40){
 	  insertionSort(data,start,end);
