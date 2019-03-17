@@ -3,7 +3,7 @@ public class Quick{
     return quickselect(data, 0, data.length-1, k);
   }
   private static void insertionSort(int [] data, int start, int end){
-    for(int i =start;i<=end;i++){
+    for(int i =start+1;i<=end;i++){
       if(data[i]<data[i-1]){
         int from = i-1;
 	while(from>=start && data[from]>data[i]) from--;
