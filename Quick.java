@@ -2,7 +2,26 @@ public class Quick{
   public static int quickselect(int []data, int k){
     return quickselect(data, 0, data.length-1, k);
   }
+  private static void insertionSort(int [] data, int start, int end){
+    for(int i =start;i<=end;i++){
+      if(data[i]<data[i-1]){
+        int temp = data[start];
 
+        for(int j=start;j<i;j++){
+          data[j]=temp;
+          temp = data[j+1];
+        }
+      }
+    }
+  }
+  private static void insert(int [] data, int from, int to){
+    int temp = data[from];
+    data[from] = data[to];
+    for(int j=from+1;j<to;j++){
+      data[j]=temp;
+      temp = data[j+1];
+    }
+  }
   public static int quickselect(int[] data, int start, int end, int k) {
       if(! (k>=start && k<=end)) return 0;
   	  int pivot = partition(data, start, end);
