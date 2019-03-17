@@ -24,8 +24,8 @@ public class Quick{
       quicksort(data,start,pivots[0]-1);
       quicksort(data,pivots[1]+1,end);
   }
-  
-  private static int[] partitionDutch(int[] data,int lo, int hi){
+
+  public static int[] partitionDutch(int[] data,int lo, int hi){
     int lt = lo;
     int i  = lo+1;
     int gt = hi;
@@ -53,7 +53,7 @@ public class Quick{
       else if(data[i] < data[pivot]){
         data = swap(data, i, lt);
         i++;
-	lt++;
+	      lt++;
       }
       else{
         data = swap(data, i, gt);
