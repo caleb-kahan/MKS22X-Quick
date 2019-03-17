@@ -17,9 +17,11 @@ public class Quick{
   private static void insert(int [] data, int from, int to){
     int temp = data[from];
     data[from] = data[to];
-    for(int j=from+1;j<to;j++){
+    for(int j=from+1;j<=to;j++){
+      int LocTemp = data[j];
       data[j]=temp;
-      temp = data[j+1];
+      temp = LocTemp;
+      
     }
   }
   public static int quickselect(int[] data, int start, int end, int k) {
