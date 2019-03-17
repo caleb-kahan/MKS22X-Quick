@@ -37,7 +37,7 @@ public class Quick{
       quicksort(data,pivot+1,end);
   }*/
   public static void quicksort(int[] data, int start, int end) {
-      if(end-start<5000){
+      if(end-start<1000){
 	  insertionSort(data,start,end);
 	  return;
       }
