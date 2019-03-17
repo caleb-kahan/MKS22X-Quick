@@ -5,12 +5,9 @@ public class Quick{
   private static void insertionSort(int [] data, int start, int end){
     for(int i =start;i<=end;i++){
       if(data[i]<data[i-1]){
-        int temp = data[start];
-
-        for(int j=start;j<i;j++){
-          data[j]=temp;
-          temp = data[j+1];
-        }
+        int from = i-1;
+	while(from>=start && data[from]>data[i]) from--;
+	insert(data,from+1,i);
       }
     }
   }
