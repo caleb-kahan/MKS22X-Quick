@@ -51,8 +51,8 @@ public class Quick{
       }
       if(start>=end) return;
       int pivot = partition(data,start,end);
-      quicksortOld(data,start,pivot-1);
-      quicksortOld(data,pivot+1,end);
+      quickSortOld(data,start,pivot-1);
+      quickSortOld(data,pivot+1,end);
   }
   public static void quicksort(int[] data, int start, int end) {
       if(end-start<40){
