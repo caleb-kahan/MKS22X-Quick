@@ -28,8 +28,8 @@ public class Quick{
       if(pivot==k) return data[pivot];
       return quickselect(data, start, pivot-1, k) + quickselect(data, pivot+1, end, k);
   }
-  private static int calculateDuplicity(int [] data){
-	int duplicates =0;
+  private static double calculateDuplicity(int [] data){
+	double duplicates =0;
 	ArrayList<Integer> previous = new ArrayList<Integer>();
 	for(int i = 0;i<data.length;i++){
 		if(previous.contains(data[i]))
@@ -51,8 +51,8 @@ public class Quick{
       }
       if(start>=end) return;
       int pivot = partition(data,start,end);
-      quicksort(data,start,pivot-1);
-      quicksort(data,pivot+1,end);
+      quicksortOld(data,start,pivot-1);
+      quicksortOld(data,pivot+1,end);
   }
   public static void quicksort(int[] data, int start, int end) {
       if(end-start<40){
